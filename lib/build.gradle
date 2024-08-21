@@ -1,0 +1,35 @@
+plugins {
+  id('java')
+}
+
+repositories {
+  mavenCentral()
+}
+
+def versions = [
+  activationApi: "1.2.0",
+  httpclient: '4.5.5',
+  jna: "5.13.0",
+  jackson: '2.9.7',
+]
+
+String jnaVersion = versions.get('jna')
+
+dependencies {
+  runtimeOnly group: "net.java.dev.jna", name: "jna", version: jnaVersion
+
+  implementation("org.slf4j:slf4j-api:$rootProject.ext.slf4jVersion")
+
+  implementation(
+    [group: "org.apache.httpcomponents", name: "httpclient", version: versions['httpclient']],
+    [group: "javax.activation", name: "javax.activation-api", version: versions.activationApi]
+  )
+
+  implementation libs.commons.io
+
+  testImplementation(testLibs.testing.junit)
+
+  var jacksonBom = versions.jackson
+  implementation platform("com.fasterxml.jackson:jackson-bom:${jacksonBom}")
+  implementation 'com.fasterxml.jackson.core:jackson-databind'
+}

@@ -1,0 +1,5 @@
+[versions]
+junit = "4.13.2"
+
+[libraries]
+testing-junit = { group = "junit", name = "junit", version.ref = "junit" }
