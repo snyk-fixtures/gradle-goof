@@ -24,3 +24,5 @@ dependencies {
 
   implementation("org.springframework.integration", "spring-integration-core")
 }
+
+apply(from = "dependencies.gradle.kts")
