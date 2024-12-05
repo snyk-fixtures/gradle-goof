@@ -19,6 +19,7 @@ ext {
 }
 
 dependencies {
+  implementation projects.webService.myLib
   implementation("org.apache.struts:struts2-core:${project.ext['struts2Version']}") {
     exclude group: 'ognl', module: 'ognl'
   }

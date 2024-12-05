@@ -1,0 +1,7 @@
+plugins {
+  id('java')
+}
+
+dependencies {
+    implementation "commons-collections:commons-collections:3.2.2"
+}
