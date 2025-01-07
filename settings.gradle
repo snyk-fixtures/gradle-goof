@@ -1,6 +1,8 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = 'myapp'
-include ':app', ':lib'
+include ':app', ':lib', ":web_service:lib"
 project(':lib').name = 'shared-lib'
+findProject(":web_service:lib").name = "myLib"
 
 dependencyResolutionManagement {
   versionCatalogs {
